@@ -1,0 +1,26 @@
+backend:
+  name: github
+  repo: cristinamodas/Cristinamodas   # 👈 ALTERE PARA SEU USUÁRIO/REPOSITÓRIO (já está certo)
+  branch: main
+  site_domain: cristinamodas.vercel.app  # 👈 Depois que o site estiver no ar, coloque o domínio do Vercel
+
+media_folder: "images/uploads"        # Pasta onde as imagens serão salvas
+public_folder: "/images/uploads"      # URL pública das imagens
+
+collections:
+  - name: "produtos"
+    label: "Produtos"
+    folder: "data"
+    create: true
+    delete: true
+    format: "json"
+    slug: "{{slug}}"
+    identifier_field: "nome"
+    editor:
+      preview: false
+    fields:
+      - { label: "Nome do Produto", name: "nome", widget: "string" }
+      - { label: "Categoria", name: "categoria", widget: "select", options: ["Feminino", "Masculino", "Acessórios"] }
+      - { label: "Preço (R$)", name: "preco", widget: "number", value_type: "float", step: 0.01 }
+      - { label: "Descrição", name: "descricao", widget: "text", required: false }
+      - { label: "Imagem", name: "imagem", widget: "image", required: false, choose_url: false }
